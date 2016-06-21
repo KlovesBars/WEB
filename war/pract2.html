@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
+<!-- above set at the top of the file will set     -->
+<!-- the browser's rendering engine into           -->
+<!-- "Quirks Mode". Replacing this declaration     -->
+<!-- with a "Standards Mode" doctype is supported, -->
+<!-- but may lead to some differences in layout.   -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <title>Pract1</title>
+  </head>
+<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script>
+	$(function(){
+		$('#calc').click(function(){
+			var var1 = $('#var1').val();
+			var var2 = $('#var2').val();
+			var operation = $('#operation').val();
+			console.log(var1, ' ', var2, ' ' , operation);
+			$('#result').load("/web?var=1&var1="+var1+"&var2="+var2+"&operation="+operation);
+		});
+		$('#hello_text').click(function(){
+			$('#say_hello').load('/web?var=0');
+		});
+	});
+</script>
+  <body>
+  <div class="container">
+	  <div class="row">
+	  	<button type="button" class="btn btn-primary" id="hello_text">Say Hello</button>
+	  	<p class="bg-success" id="say_hello"></p>
+	  </div>
+	  <div class="row">
+	  <p class="bg-info">Введите числа и выберите операцию:</p>
+	  	<div class="form-inline">
+		  <div class="form-group">
+		    <label class="sr-only" for="exampleInputEmail3">a</label>
+		    <input type="text" class="form-control" id="var1">
+		  </div>
+		  <select class="form-control" id="operation">
+			<option value="0">+</option>
+			<option value="1">-</option>
+			<option value="2">*</option>
+			<option value="3">:</option>
+			</select>
+		  <div class="form-group">
+		    <label class="sr-only" for="exampleInputPassword3">b</label>
+		    <input type="text" class="form-control" id="var2">
+		  </div>
+		  <button type="submit" id="calc" class="btn btn-primary">Посчитать</button>
+		</div>
+		<p class="bg-success">Результат операции: <b><span style="color:red" id="result"></span></b></p>
+	  </div>
+	  <p><a href = "index.html">Назад</a></p>
+  </div>
+	
+  </body>
+</html>
